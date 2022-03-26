@@ -21,6 +21,7 @@
         </div>
     </div>
     <img id="result_img" class="image" src="" onerror="this.src = 'src/pc.png'" />
+    <p class="identity_descc" id="result" style="text-align: center; margin-top: 1%"></p>
     <div class="">
       <input
         type='text'
@@ -33,7 +34,8 @@
   <div class="content">
     <!-- put the image here -->
     <input type='button' class="content_button" value='Search' onclick="launch()" />
-    <p class="content_upload_txt">Or upload your own image</p>
+    <input type="file" id="image-input" accept="image/*" style="display: none;" onchange="updateImage(event)"> 
+    <p class="content_upload_txt" onclick="document.getElementById('image-input').click()">Or upload your own image</p>
     <img src="" class="content_musique">
   </div>
 
@@ -43,12 +45,31 @@
   <script>
 function launch() {
   var img = document.getElementById("result_img");
-  getAverageRGB(img);
+  var rgb = getAverageRGB(img);
+  var result_text = document.getElementById("result")
+  result_text.innerText = "blue percentage: " + ~~(rgb.b/255 * 100) + "%";
+
 }
 
 // this function aims to get an average color from an image,
 // but it currently doesn't work because getImageData() cannot
 // use a local image without a server...
+async function updateImage(event) {
+  var tgt = event.target || window.event.srcElement,
+      files = tgt.files;
+  if (FileReader && files, files.length) {
+    var fr = new FileReader();  
+    fr.onload = function () {
+      canvas = document.getElementById('result_img')
+      canvas.src = fr.result;
+    }
+    fr.readAsDataURL(files[0]);
+  }
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  await sleep(5);
+  launch()
+}
+
 function getAverageRGB(imgEl) {
       var blockSize = 5,
         defaultRGB = { r: 0, g: 0, b: 0},
