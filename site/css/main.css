@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background-color: #000a28;
 }
 
 .header {
@@ -28,41 +28,42 @@ body {
 .identity_name {
     font-size: 30px;
     margin-top: 5px;
-    color: blue;
+    color: #0b2d92;
 }
 
 .identity_descc {
     font-size: 15px;
     margin-top: -20px;
-    color: blue;
+    color: #0b2d92;
 }
 
 .search_bar {
-    background-color: blue;
+    background-color: #0b2d92;
     width: 550px;
     height: 50px;
     margin-top: 70px;
     border-radius: 20px;
     display: block;
-    margin-left: 290px;
+    margin-left: 340px;
 }
 
 .search_txt {
     font-size: 15px;
     padding-top: 15px;
     padding-left: 190px;
+    color: #000a28;
 }
 
 .image_demo {
-    margin-left: 600px;
+    margin-left:650px;
 }
 
 .content_button {
-    background-color: blue;
+    background-color: #0b2d92;
     width: 200px;
     height: 40px;
     border-radius: 10px;
-    margin-left: 780px;
+    margin-left: 830px;
     margin-top: 70px;
 }
 
@@ -70,4 +71,5 @@ body {
     font-size: 15px;
     padding-top: 10px;
     padding-left: 30px;
+    color: #000a28;
 }
