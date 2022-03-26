@@ -3,6 +3,9 @@
 <head>
     <title>Jam Site</title>
     <link rel="stylesheet" href="css/main.css">
+
+    <!-- Font, do not touch -->
+    <link href='https://fonts.googleapis.com/css?family=Outfit' rel='stylesheet'>
 </head>
 
 <body>
@@ -12,26 +15,33 @@
                 <img src="src/logo.png" class="img-logo">
             </div>
             <div class="identity_txt">
-                <p class="identity_name">PROJECT</p>
-                <p class="identity_descc">detects the percentage of blue in an image</p>
+                <p class="identity_name">ETHICAL BLUE DETECTOR</p>
+                <p class="identity_descc">How ethic is your image ?</p>
             </div>
-
         </div>
-        <a href="">
-            <div class="search_bar">
-                <p class="search_txt">Search an image</p>
-            </div>
-        </a>
+        <img id="result_img" class="image" src="" />
+        <div class="">
+          <input type='text' id='search_bar' class="search_bar" placeholder='Search' />
+        </div>
     </div>
     <div class="content">
-        <img class="image_demo" src="src/pc.png">
-        <a href="">
-            <div class="content_button">
-                <p class="content_button_txt">upload your image</p>
-            </div>
-        </a>
+        <!-- put the image here -->
+        <input type='button' class="content_button" value='Search' onclik="dispImage()" />
+        <p class="content_upload_txt">Or upload your own image</p>
         <img src="" class="content_musique">
     </div>
 
+    <script>
+      var isImage = false;
+
+      function dispImage () {
+        var val = document.getElementById("search_bar").value;
+
+        if (!isImage) {
+          isImage = true;
+        }
+        document.getElementById("result_img").src = val;
+      }
+    </script>
 </body>
 </html>
