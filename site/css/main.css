@@ -1,0 +1,73 @@
+body {
+    background-color: black;
+}
+
+.header {
+    width: 100%;
+    height: 200px;
+    display: flex;
+}
+
+.identity {
+    display: flex;
+    width: 300px;
+    height: 100px;
+    margin-top: 50px;
+    margin-left: 20px;
+}
+
+.img-logo {
+    width: 50px;
+}
+
+.identity_txt {
+    display: block;
+    margin-left: 10px;
+}
+
+.identity_name {
+    font-size: 30px;
+    margin-top: 5px;
+    color: blue;
+}
+
+.identity_descc {
+    font-size: 15px;
+    margin-top: -20px;
+    color: blue;
+}
+
+.search_bar {
+    background-color: blue;
+    width: 550px;
+    height: 50px;
+    margin-top: 70px;
+    border-radius: 20px;
+    display: block;
+    margin-left: 290px;
+}
+
+.search_txt {
+    font-size: 15px;
+    padding-top: 15px;
+    padding-left: 190px;
+}
+
+.image_demo {
+    margin-left: 600px;
+}
+
+.content_button {
+    background-color: blue;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    margin-left: 780px;
+    margin-top: 70px;
+}
+
+.content_button_txt {
+    font-size: 15px;
+    padding-top: 10px;
+    padding-left: 30px;
+}
