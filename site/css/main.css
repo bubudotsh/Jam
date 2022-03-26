@@ -21,9 +21,10 @@ body {
 .identity {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5%;
+    margin-top: 4%;
     margin-bottom: 2%;
     display: flex;
+    max-width: 40%;
 }
 
 .img-logo {
@@ -39,12 +40,23 @@ body {
 
 .identity_name {
     font-size: 40px;
+    margin: 0;
     margin-top: auto;
     color: #7a7cc7;
 }
 
 .identity_descc {
     font-size: 30px;
+    margin: 0;
+    margin-bottom: 20px;
+    color: #94bdff
+}
+
+.identity_sketch {
+    font-size: 20px;
+    margin: 0;
+    margin-top: 20px;
+    text-align: justify;
     color: #94bdff
 }
 
@@ -65,9 +77,14 @@ body {
     outline: none;
 }
 
+.search_bar::placeholder {
+    color: #607ca8;
+  }
+
 .image {
-    width: 10vw;
-    height: 20vh;
+    object-fit: cover;
+    width: 20%;
+    height: 20%;
     margin-left: auto;
     margin-right: auto;
     outline: none;

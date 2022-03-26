@@ -1,47 +1,97 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Jam Site</title>
-    <link rel="stylesheet" href="css/main.css">
+  <title>Jam Site</title>
+  <link rel="stylesheet" href="css/main.css">
 
-    <!-- Font, do not touch -->
-    <link href='https://fonts.googleapis.com/css?family=Outfit' rel='stylesheet'>
+  <!-- Font, do not touch -->
+  <link href='https://fonts.googleapis.com/css?family=Outfit' rel='stylesheet'>
 </head>
 
 <body>
-    <div class="header">
-        <div class="identity">
-            <div class="logo">
-                <img src="src/logo.png" class="img-logo">
-            </div>
-            <div class="identity_txt">
-                <p class="identity_name">ETHICAL BLUE DETECTOR</p>
-                <p class="identity_descc">How ethic is your image ?</p>
-            </div>
+  <div class="header">
+    <div class="identity">
+        <div class="logo">
+          <img src="src/logo.png" class="img-logo">
         </div>
-        <img id="result_img" class="image" src="" />
-        <div class="">
-          <input type='text' id='search_bar' class="search_bar" placeholder='Search' />
+        <div class="identity_txt">
+          <p class="identity_name">ETHICAL BLUE DETECTOR</p>
+          <p class="identity_descc">How ethic is your image ?</p>
+          <p class="identity_sketch">The bluer you are, the more ethical your become. Blue refers to water, and water refers to life. You know what that means : blue is life.</p>
         </div>
     </div>
-    <div class="content">
-        <!-- put the image here -->
-        <input type='button' class="content_button" value='Search' onclik="dispImage()" />
-        <p class="content_upload_txt">Or upload your own image</p>
-        <img src="" class="content_musique">
+    <img id="result_img" class="image" src="" onerror="this.src = 'src/pc.png'" />
+    <div class="">
+      <input
+        type='text'
+        id='search_bar'
+        class="search_bar"
+        placeholder='Search a keyword here !'
+      />
     </div>
+  </div>
+  <div class="content">
+    <!-- put the image here -->
+    <input type='button' class="content_button" value='Search' onclick="launch()" />
+    <p class="content_upload_txt">Or upload your own image</p>
+    <img src="" class="content_musique">
+  </div>
 
-    <script>
-      var isImage = false;
+  <div id='knowMore'>
+  </div>
 
-      function dispImage () {
-        var val = document.getElementById("search_bar").value;
+  <script>
+function launch() {
+  var img = document.getElementById("result_img");
+  getAverageRGB(img);
+}
 
-        if (!isImage) {
-          isImage = true;
-        }
-        document.getElementById("result_img").src = val;
-      }
-    </script>
+// this function aims to get an average color from an image,
+// but it currently doesn't work because getImageData() cannot
+// use a local image without a server...
+function getAverageRGB(imgEl) {
+      var blockSize = 5,
+        defaultRGB = { r: 0, g: 0, b: 0},
+        canvas = document.createElement('canvas'),
+        context = canvas.getContext && canvas.getContext('2d'),
+        data, width, height,
+        i = -4,
+        length,
+        rgb = { r: 0, g: 0, b: 0},
+        count = 0;
+
+    if (!context) {
+        return defaultRGB;
+    }
+
+    height = canvas.height = imgEl.naturalHeight || imgEl.offsetHeight || imgEl.height;
+    width = canvas.width = imgEl.naturalWidth || imgEl.offsetWidth || imgEl.width;
+
+    context.drawImage(imgEl, 0, 0);
+
+    try {
+        data = context.getImageData(0, 0, width, height);
+    } catch(e) {
+        console.log(e);
+        return defaultRGB;
+    }
+
+    length = data.data.length;
+
+    while ( (i += blockSize * 4) < length ) {
+        ++count;
+        rgb.r += data.data[i];
+        rgb.g += data.data[i+1];
+        rgb.b += data.data[i+2];
+    }
+
+    rgb.r = ~~(rgb.r/count);
+    rgb.g = ~~(rgb.g/count);
+    rgb.b = ~~(rgb.b/count);
+
+    console.log(rgb);
+    return rgb;
+}
+  </script>
 </body>
 </html>
