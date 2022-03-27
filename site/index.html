@@ -52,8 +52,8 @@ const launch = async () => {
   }
 
   var img = document.getElementById("result_img");
-  img.crossOrigin = "Anonymous";
   img.src = url;
+  img.crossOrigin = "Anonymous";
   img.onload=setAverageText
 }
 
@@ -78,7 +78,7 @@ const updateImage = async (event) => {
     document.getElementById('result_img').onload=setAverageText
   }, false);
 
-  if (files) {
+  if (files && typeof(files[0]) == Blob) {
     fr.readAsDataURL(files[0]);
   }
 }
