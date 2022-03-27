@@ -46,6 +46,44 @@
     <audio src="src/Jack_Adkins_-_Blue.mp3" controls autoplay="true"></audio>
   </div>
 
+
+  <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+  <script>
+      window.sr = ScrollReveal();
+
+      sr.reveal(".identity",{
+          duration: 1000,
+          delay: 200,
+          origin: 'top',
+          distance: '-200px'
+      });
+
+      sr.reveal(".image",{
+          duration: 1000,
+          delay: 400,
+          origin: 'top',
+          distance: '-200px'
+      });
+
+      sr.reveal(".search_bar",{
+          duration: 1000,
+          delay: 600,
+          origin: 'top',
+          distance: '-200px'
+      });
+
+      sr.reveal(".content",{
+          duration: 1000,
+          delay: 800,
+          origin: 'top',
+          distance: '-200px'
+      });
+  </script>
+
+
+
+
+
   <script>
 const launch = async () => {
   var url = document.getElementById("search_bar").value;
