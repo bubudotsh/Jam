@@ -21,7 +21,7 @@ body {
 .identity {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 4%;
+    margin-top: 20px;
     margin-bottom: 2%;
     display: flex;
     max-width: 40%;
@@ -75,6 +75,7 @@ body {
     text-align: center;
     text-decoration: none;
     outline: none;
+    padding: 0 20px;
 }
 
 .search_bar::placeholder {
