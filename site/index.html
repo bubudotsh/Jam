@@ -52,8 +52,9 @@ const launch = async () => {
   }
 
   var img = document.getElementById("result_img");
+  img.crossOrigin = "Anonymous";
   img.src = url;
-  await setAverageText();
+  img.onload=setAverageText
 }
 
 const setAverageText = async () => {
@@ -74,15 +75,12 @@ const updateImage = async (event) => {
       return;
     }
     document.getElementById('result_img').src = fr.result;
-    setAverageText();
+    document.getElementById('result_img').onload=setAverageText
   }, false);
 
   if (files) {
     fr.readAsDataURL(files[0]);
   }
-  const sleep = (ms) => new Promise(r => setTimeout(r, ms));
-  await sleep(5);
-  await setAverageText();
 }
 
 const getAverageRGB = async (imgEl) => {
