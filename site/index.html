@@ -78,7 +78,7 @@ const updateImage = async (event) => {
     document.getElementById('result_img').onload=setAverageText
   }, false);
 
-  if (files && typeof(files[0]) == Blob) {
+  if (files && files[0] instanceof Blob) {
     fr.readAsDataURL(files[0]);
   }
 }
